@@ -1,0 +1,16 @@
+{
+  "name": "ayush-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --open",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "powershell -ExecutionPolicy Bypass -File deploy.ps1",
+    "deploy-bash": "bash deploy.sh"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "live-server": "^1.2.2"
+  }
+}
