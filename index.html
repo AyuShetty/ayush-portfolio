@@ -7,1410 +7,364 @@
     <meta name="keywords" content="Ayush Shetty, Information Science, Blockchain, Mental Health, Technology, Developer">
     <title>Ayush N Shetty - Multi-faceted Creator</title>
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* CSS Reset & Base Styles */
+        /* Modern Minimalist Variables */
+        :root {
+            --primary: #0a0a0a;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border: #e9ecef;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --primary: #2D3748;
-            --secondary: #627EEA;
-            --accent: #F7FAFC;
-            --text: #1A202C;
-            --light-gray: #E2E8F0;
-            --white: #FFFFFF;
-            --shadow: rgba(45, 55, 72, 0.1);
-            --transition: all 0.2s ease;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: var(--white);
+            color: var(--primary);
             overflow-x: hidden;
         }
-        
+
         /* Typography */
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.2; }
-        h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; line-height: 1.3; }
-        h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); font-weight: 500; line-height: 1.4; }
-        p { font-size: 1rem; margin-bottom: 1rem; }
+        .display-1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 700; line-height: 1.2; }
+        .lead { font-size: clamp(1rem, 2.5vw, 1.25rem); }
         
-        /* Layout Components */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .section {
-            padding: 4rem 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .section:first-child { min-height: 100vh; }
-        .section:not(:first-child) { min-height: auto; padding: 6rem 0; }
-        
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+        /* Clean Navigation */
+        .navbar {
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
             padding: 1rem 0;
-            transition: var(--transition);
         }
         
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--primary) !important;
+            font-size: 1.5rem;
         }
         
         .nav-link {
-            text-decoration: none;
-            color: var(--text);
+            color: var(--gray) !important;
             font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            color: var(--secondary);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
+            margin: 0 0.5rem;
             transition: var(--transition);
         }
         
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--accent) 0%, rgba(98, 126, 234, 0.05) 100%);
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero-title {
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-tagline {
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-        
-        .hero-description {
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-        
-        .hero-role {
-            background: var(--secondary);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 500;
-            margin-bottom: 3rem;
-        }
-        
-        .cta-button {
-            background: var(--secondary);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(98, 126, 234, 0.3);
-        }
-        
-        /* About Section */
-        .about-intro {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 4rem;
-            align-items: start;
-            margin-bottom: 4rem;
-        }
-        
-        .about-profile {
-            text-align: center;
-        }
-        
-        .profile-image {
-            margin-bottom: 2rem;
-        }
-        
-        .profile-placeholder {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(98, 126, 234, 0.3);
-        }
-        
-        .profile-emoji {
-            font-size: 4rem;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-        
-        .profile-status {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #10B981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .profile-quick-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        
-        .quick-stat {
-            text-align: center;
-            padding: 1rem;
-            background: var(--accent);
-            border-radius: 12px;
-            transition: var(--transition);
-        }
-        
-        .quick-stat:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-        
-        .stat-value {
-            display: block;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text);
-            opacity: 0.7;
-        }
-        
-        .about-story {
-            padding-left: 2rem;
-        }
-        
-        .story-highlight {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        .story-highlight h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .story-tagline {
-            font-style: italic;
-            color: var(--secondary);
-            font-size: 1.125rem;
-            margin: 0;
-        }
-        
-        .story-content {
-            margin-bottom: 2rem;
-        }
-        
-        .story-content p {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .personal-values h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .value-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--accent);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .value-item:hover {
-            background: rgba(98, 126, 234, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .value-icon {
-            font-size: 1.5rem;
-        }
-        
-        /* Skills & Expertise */
-        .expertise-section {
-            margin: 4rem 0;
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--accent) 0%, rgba(98, 126, 234, 0.05) 100%);
-            border-radius: 16px;
-        }
-        
-        .skills-comprehensive {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .skill-category-advanced {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow);
-            border: 1px solid var(--light-gray);
-        }
-        
-        .skill-category-advanced h4 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skills-detailed {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .skill-item-detailed {
-            padding: 1rem 0;
-        }
-        
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-name {
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        .skill-level {
-            font-size: 0.875rem;
-            color: var(--secondary);
-            font-weight: 500;
-        }
-        
-        .skill-bar-detailed {
-            height: 6px;
-            background: var(--light-gray);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-progress-detailed {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            border-radius: 3px;
-            width: 0%;
-            transition: width 2s ease-in-out;
-        }
-        
-        .skill-experience {
-            font-size: 0.75rem;
-            color: var(--text);
-            opacity: 0.7;
-        }
-        
-        .soft-skills-grid {
-            display: grid;
-            grid-template-rows: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .soft-skill-item {
-            padding: 1rem;
-            background: var(--accent);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .soft-skill-item:hover {
-            background: rgba(98, 126, 234, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .soft-skill-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .soft-skill-item h5 {
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-            font-size: 0.875rem;
-        }
-        
-        .soft-skill-item p {
-            font-size: 0.75rem;
-            margin: 0;
-            opacity: 0.8;
-        }
-        
-        .languages-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .language-item {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--accent);
-            border-radius: 8px;
-        }
-        
-        .language-name {
-            font-weight: 500;
-            color: var(--text);
-        }
-        
-        .language-level {
-            display: flex;
-            gap: 2px;
-        }
-        
-        .level-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--light-gray);
-        }
-        
-        .level-dot.filled {
-            background: var(--secondary);
-        }
-        
-        .language-desc {
-            font-size: 0.75rem;
-            color: var(--secondary);
-            text-align: right;
-        }
-        
-        /* Education Section */
-        .education-section {
-            margin-top: 4rem;
-        }
-        
-        .education-card {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow);
-            border: 1px solid var(--light-gray);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .education-icon {
-            font-size: 3rem;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .education-details h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-institution {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-meta {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-year, .education-grade {
-            font-size: 0.875rem;
-            color: var(--text);
-            opacity: 0.8;
-        }
-        
-        .education-grade {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .education-focus {
-            font-size: 0.875rem;
-            margin: 0;
-            opacity: 0.8;
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent) !important;
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.125rem;
-            line-height: 1.8;
-        }
-        
-        .about-highlight {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .skill-category h4 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .project-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            overflow: hidden;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(45, 55, 72, 0.15);
-        }
-        
-        .project-image {
-            margin: -2rem -2rem 1.5rem -2rem;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        /* Hero Section - Clean & Minimal */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             position: relative;
         }
-        
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .project-placeholder:hover .image-overlay {
-            opacity: 1;
-        }
-        
-        .view-demo-btn {
-            background: var(--white);
-            color: var(--primary);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .view-demo-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-        }
-        
-        .project-title {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .project-description {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tech-tag {
-            background: rgba(98, 126, 234, 0.1);
-            color: var(--secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-        
-        .project-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: var(--accent);
-            border-radius: 8px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text);
-            opacity: 0.7;
-        }
-        
-        .project-impact {
-            font-weight: 600;
-            color: var(--secondary);
-        }
 
-        /* Achievements Section */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .achievement-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .achievement-card::before {
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-        }
-        
-        .achievement-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(45, 55, 72, 0.15);
-        }
-        
-        .achievement-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .achievement-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .achievement-year {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-top: 1rem;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
         }
 
-        /* Testimonials Section */
-        .testimonials-carousel {
+        .hero-content {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 3rem 2rem 2rem;
-            box-shadow: 0 4px 20px var(--shadow);
-            border: 1px solid var(--light-gray);
-            display: none;
-            text-align: center;
-            position: relative;
-        }
-        
-        .testimonial-card.active {
-            display: block;
-            animation: fadeInTestimonial 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeInTestimonial {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .testimonial-content {
-            margin-bottom: 2rem;
-        }
-        
-        .testimonial-content p {
-            font-size: 1.125rem;
-            font-style: italic;
-            line-height: 1.6;
-            color: var(--text);
-            margin: 0;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-        
-        .author-info {
-            text-align: left;
-        }
-        
-        .author-info h4 {
-            color: var(--primary);
-            margin: 0;
-        }
-        
-        .author-info span {
-            color: var(--secondary);
-            font-size: 0.875rem;
-        }
-        
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: none;
-            background: var(--light-gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .nav-dot.active {
-            background: var(--secondary);
-            transform: scale(1.2);
+            z-index: 2;
         }
 
-        /* Contact Form */
-        .contact-form-container {
-            max-width: 500px;
-            margin: 3rem auto 0;
-            padding: 2rem;
+        /* Sections */
+        .section {
+            padding: clamp(3rem, 8vw, 6rem) 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
             background: var(--accent);
-            border-radius: 12px;
-        }
-        
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            position: relative;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--light-gray);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: var(--white);
-            resize: vertical;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(98, 126, 234, 0.1);
-        }
-        
-        .form-group label {
             position: absolute;
-            top: -0.5rem;
-            left: 0.75rem;
-            background: var(--accent);
-            padding: 0 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        
-        .form-submit-btn {
-            background: var(--secondary);
-            color: var(--white);
+
+        /* Cards - Simple & Clean */
+        .card {
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .form-submit-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(98, 126, 234, 0.3);
-        }
-        
-        .form-submit-btn.loading {
-            pointer-events: none;
-        }
-        
-        .btn-loading {
-            display: none;
-        }
-        
-        .form-submit-btn.loading .btn-text {
-            display: none;
-        }
-        
-        .form-submit-btn.loading .btn-loading {
-            display: inline;
-        }
-        
-        /* Writing Section */
-        .writing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .writing-card {
-            background: linear-gradient(135deg, var(--accent) 0%, rgba(98, 126, 234, 0.05) 100%);
             border-radius: 12px;
-            padding: 2rem;
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .writing-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--shadow);
-        }
-        
-        .writing-title {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Philosophy Section */
-        .philosophy {
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(45, 55, 72, 0.9) 100%);
-            color: var(--white);
-        }
-        
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .philosophy-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .philosophy-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .philosophy-quote {
-            font-size: 1.125rem;
-            font-style: italic;
-            line-height: 1.6;
-        }
-        
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            height: 100%;
         }
 
-        /* Skills Visualization */
-        .skills-visualization {
-            max-width: 800px;
-            margin: 0 auto;
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
-        .skill-bar-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
+        /* Skills - Minimal Progress */
         .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .skill-name {
-            min-width: 200px;
-            font-weight: 600;
-            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
         .skill-bar {
-            flex: 1;
-            height: 12px;
-            background: var(--light-gray);
-            border-radius: 6px;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
             overflow: hidden;
-            position: relative;
+            margin-top: 0.5rem;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            border-radius: 6px;
-            width: 0%;
-            transition: width 2s ease-in-out;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 2s ease;
+        }
+
+        /* Project Cards - Clean Grid */
+        .project-card {
             position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 2rem;
         }
 
-        .skill-progress::after {
-            content: attr(data-skill) '%';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .skill-progress.animate {
-            width: var(--progress-width);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--secondary);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 3rem 0;
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--accent), #ff8a50);
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
         }
 
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
+        .project-info {
+            padding: 1.5rem;
         }
 
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-date {
-            flex: 1;
-            text-align: center;
-            font-weight: 600;
-            color: var(--secondary);
-            padding: 1rem;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow);
-            border: 1px solid var(--light-gray);
+        /* Timeline - Minimal */
+        .timeline-item {
+            padding: 2rem 0;
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            margin-left: 1rem;
             position: relative;
         }
 
-        .timeline-content::before {
+        .timeline-item::before {
             content: '';
-            position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary);
-            border-radius: 50%;
-            transform: translateY(-50%);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -25px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -25px;
-        }
-
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-intro {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            color: var(--secondary);
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .contact-item {
-            text-align: center;
-            padding: 1.5rem;
+            width: 12px;
+            height: 12px;
             background: var(--accent);
-            border-radius: 12px;
+            border-radius: 50%;
+            position: absolute;
+            left: -7px;
+            top: 2.5rem;
+        }
+
+        /* Contact - Clean Form */
+        .form-control {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 0.875rem 1rem;
             transition: var(--transition);
         }
-        
-        .contact-item:hover {
-            background: rgba(98, 126, 234, 0.1);
-            transform: translateY(-2px);
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
         }
-        
-        .contact-label {
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 0.875rem 2rem;
             font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
+            transition: var(--transition);
         }
-        
-        .contact-value {
-            color: var(--text);
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            transition: var(--transition);
             text-decoration: none;
+            display: inline-block;
         }
-        
-        .contact-value:hover {
-            color: var(--secondary);
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
-        
-        /* Utilities */
-        .text-center { text-align: center; }
-        .mb-2 { margin-bottom: 2rem; }
-        .mb-3 { margin-bottom: 3rem; }
-        
+
+        /* Badge */
+        .badge-custom {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+            .timeline-item {
+                margin-left: 0;
+                padding-left: 1.5rem;
             }
             
+            .timeline-item::before {
+                left: -7px;
+            }
+
             .section {
                 padding: 3rem 0;
             }
-            
-            .about-intro {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .about-story {
-                padding-left: 0;
-            }
-            
-            .profile-placeholder {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .profile-emoji {
-                font-size: 3rem;
-            }
-            
-            .profile-quick-stats {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-comprehensive {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .expertise-section {
-                padding: 2rem 1rem;
-            }
-            
-            .soft-skills-grid {
-                grid-template-rows: auto;
-                grid-template-columns: 1fr;
-            }
-            
-            .education-card {
-                flex-direction: column;
+
+            .navbar-nav {
                 text-align: center;
-                gap: 1rem;
-            }
-            
-            .education-meta {
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .skill-item {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
-            
-            .skill-name {
-                min-width: unset;
-            }
-            
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                flex-direction: column !important;
-                padding-left: 50px;
-            }
-            
-            .timeline-date {
-                text-align: left !important;
-                padding: 0 0 1rem 0;
-            }
-            
-            .timeline-content::before {
-                left: -45px !important;
-                right: unset !important;
-            }
-            
-            .project-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form-container {
-                margin: 2rem 1rem 0;
-                padding: 1.5rem;
-            }
-            
-            .testimonial-author {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .author-info {
-                text-align: center;
+                padding-top: 1rem;
             }
         }
-        
+
         /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
         }
-        
-        /* Loading States */
-        .lazy-image {
-            background: var(--light-gray);
-            border-radius: 8px;
-            transition: var(--transition);
+
+        /* Unique Elements */
+        .floating-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
         }
-        
-        .lazy-image.loaded {
-            background: transparent;
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <div class="nav-container">
-                <a href="#hero" class="nav-logo">Ayush N Shetty</a>
-                <ul class="nav-menu">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills-viz" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                    <li><a href="#timeline" class="nav-link">Journey</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+            <a class="navbar-brand" href="#home">Ayush N Shetty</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="section hero">
+    <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">Ayush N Shetty</h1>
-                <p class="hero-tagline">Multi-faceted creator bridging technology, mental health advocacy, and thoughtful design</p>
-                <p class="hero-description">Information Science student passionate about building scalable solutions and fostering human connection</p>
-                <div class="hero-role">Blockchain Digital Content & Engagement Strategist at Avarch LLC</div>
-                <a href="#contact" class="cta-button">Let's Collaborate</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content">
+                        <h1 class="display-1 mb-4" data-aos="fade-up">Ayush N Shetty</h1>
+                        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                            Multi-faceted creator bridging technology, mental health advocacy, and thoughtful design
+                        </p>
+                        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <span class="status-indicator">
+                                <span class="status-dot"></span>
+                                Available for opportunities
+                            </span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">
+                            Let's Connect
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1418,241 +372,158 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">About Me</h2>
-                
-                <!-- Personal Introduction -->
-                <div class="about-intro">
-                    <div class="about-profile">
-                        <div class="profile-image">
-                            <div class="profile-placeholder">
-                                <span class="profile-emoji">👨‍💻</span>
-                                <div class="profile-status">
-                                    <span class="status-dot"></span>
-                                    <span class="status-text">Available for opportunities</span>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">About Me</h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-light rounded-circle mb-4" 
+                             style="width: 150px; height: 150px; font-size: 3rem;">
+                            👨‍💻
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-4">
+                                <div class="card text-center">
+                                    <div class="card-body py-3">
+                                        <h4 class="mb-0" style="color: var(--accent);">8.02</h4>
+                                        <small class="text-muted">CGPA</small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="profile-quick-stats">
-                            <div class="quick-stat">
-                                <span class="stat-value">8.02</span>
-                                <span class="stat-label">CGPA</span>
-                            </div>
-                            <div class="quick-stat">
-                                <span class="stat-value">50K+</span>
-                                <span class="stat-label">Readers Reached</span>
-                            </div>
-                            <div class="quick-stat">
-                                <span class="stat-value">1K+</span>
-                                <span class="stat-label">Students Helped</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-story">
-                        <div class="story-highlight">
-                            <h3>My Journey</h3>
-                            <p class="story-tagline">"From code to community, building bridges between technology and humanity"</p>
-                        </div>
-                        
-                        <div class="story-content">
-                            <p>I'm <span class="about-highlight">Ayush N Shetty</span>, a <span class="about-highlight">BTech Information Science student</span> at NMAM Institute of Technology with a CGPA of 8.02. My journey is defined by the intersection of <span class="about-highlight">technical excellence</span> and <span class="about-highlight">social impact</span>.</p>
-                            
-                            <p>What started as a passion for coding has evolved into a mission to create technology that genuinely serves people. From developing gesture-based classroom tools to leading mental health initiatives, I believe in building solutions that matter.</p>
-                            
-                            <p>Currently serving as a <span class="about-highlight">Blockchain Digital Content & Engagement Strategist at Avarch LLC</span>, I'm dedicated to making complex technologies accessible and meaningful to everyone.</p>
-                        </div>
-                        
-                        <div class="personal-values">
-                            <h4>What Drives Me</h4>
-                            <div class="values-grid">
-                                <div class="value-item">
-                                    <div class="value-icon">🎯</div>
-                                    <span>Impact over Recognition</span>
+                            <div class="col-4">
+                                <div class="card text-center">
+                                    <div class="card-body py-3">
+                                        <h4 class="mb-0" style="color: var(--accent);">50K+</h4>
+                                        <small class="text-muted">Readers</small>
+                                    </div>
                                 </div>
-                                <div class="value-item">
-                                    <div class="value-icon">🤝</div>
-                                    <span>Community First</span>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">💡</div>
-                                    <span>Continuous Learning</span>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">🌱</div>
-                                    <span>Sustainable Growth</span>
+                            </div>
+                            <div class="col-4">
+                                <div class="card text-center">
+                                    <div class="card-body py-3">
+                                        <h4 class="mb-0" style="color: var(--accent);">1K+</h4>
+                                        <small class="text-muted">Students</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Skills & Expertise -->
-                <div class="expertise-section">
-                    <h3 class="text-center mb-2">Skills & Expertise</h3>
-                    <div class="skills-comprehensive">
-                        <div class="skill-category-advanced">
-                            <h4>💻 Technical Proficiency</h4>
-                            <div class="skills-detailed">
-                                <div class="skill-item-detailed">
-                                    <div class="skill-info">
-                                        <span class="skill-name">JavaScript/TypeScript</span>
-                                        <span class="skill-level">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar-detailed">
-                                        <div class="skill-progress-detailed" data-level="90"></div>
-                                    </div>
-                                    <div class="skill-experience">3+ years • React, Node.js, Web3</div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-3">My Journey</h3>
+                    <p class="lead text-muted mb-4">"From code to community, building bridges between technology and humanity"</p>
+                    <p class="mb-3">I'm <strong>Ayush N Shetty</strong>, a BTech Information Science student at NMAM Institute of Technology with a CGPA of 8.02.</p>
+                    <p class="mb-3">What started as a passion for coding has evolved into a mission to create technology that genuinely serves people.</p>
+                    <p class="mb-4">Currently serving as a <strong>Blockchain Digital Content & Engagement Strategist at Avarch LLC</strong>.</p>
+                    <a href="#projects" class="btn-outline">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-4">Technical Skills</h4>
+                            
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">JavaScript/TypeScript</span>
+                                    <span class="text-muted">90%</span>
                                 </div>
-                                
-                                <div class="skill-item-detailed">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Python</span>
-                                        <span class="skill-level">Advanced</span>
-                                    </div>
-                                    <div class="skill-bar-detailed">
-                                        <div class="skill-progress-detailed" data-level="85"></div>
-                                    </div>
-                                    <div class="skill-experience">4+ years • ML, OpenCV, Data Analysis</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
                                 </div>
-                                
-                                <div class="skill-item-detailed">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Blockchain Technology</span>
-                                        <span class="skill-level">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar-detailed">
-                                        <div class="skill-progress-detailed" data-level="80"></div>
-                                    </div>
-                                    <div class="skill-experience">2+ years • Smart Contracts, DeFi, NFTs</div>
-                                </div>
-                                
-                                <div class="skill-item-detailed">
-                                    <div class="skill-info">
-                                        <span class="skill-name">C++</span>
-                                        <span class="skill-level">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar-detailed">
-                                        <div class="skill-progress-detailed" data-level="75"></div>
-                                    </div>
-                                    <div class="skill-experience">3+ years • Algorithms, System Programming</div>
-                                </div>
-                                
-                                <div class="skill-item-detailed">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Kotlin</span>
-                                        <span class="skill-level">Beginner</span>
-                                    </div>
-                                    <div class="skill-bar-detailed">
-                                        <div class="skill-progress-detailed" data-level="60"></div>
-                                    </div>
-                                    <div class="skill-experience">1+ year • Android Development</div>
-                                </div>
+                                <small class="text-muted">React, Node.js, Web3</small>
                             </div>
-                        </div>
-                        
-                        <div class="skill-category-advanced">
-                            <h4>🎨 Creative & Soft Skills</h4>
-                            <div class="soft-skills-grid">
-                                <div class="soft-skill-item">
-                                    <div class="soft-skill-icon">📝</div>
-                                    <h5>Content Strategy</h5>
-                                    <p>Technical writing, community engagement, educational content creation</p>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">Python</span>
+                                    <span class="text-muted">85%</span>
                                 </div>
-                                <div class="soft-skill-item">
-                                    <div class="soft-skill-icon">👥</div>
-                                    <h5>Leadership</h5>
-                                    <p>Team management, initiative planning, stakeholder communication</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
                                 </div>
-                                <div class="soft-skill-item">
-                                    <div class="soft-skill-icon">🔍</div>
-                                    <h5>Research</h5>
-                                    <p>Market analysis, technology evaluation, trend identification</p>
-                                </div>
-                                <div class="soft-skill-item">
-                                    <div class="soft-skill-icon">🎯</div>
-                                    <h5>Problem Solving</h5>
-                                    <p>Critical thinking, creative solutions, systematic debugging</p>
-                                </div>
+                                <small class="text-muted">ML, OpenCV, Data Analysis</small>
                             </div>
-                        </div>
-                        
-                        <div class="skill-category-advanced">
-                            <h4>🌍 Languages & Communication</h4>
-                            <div class="languages-grid">
-                                <div class="language-item">
-                                    <span class="language-name">English</span>
-                                    <div class="language-level">
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                    </div>
-                                    <span class="language-desc">Fluent</span>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">Blockchain</span>
+                                    <span class="text-muted">80%</span>
                                 </div>
-                                <div class="language-item">
-                                    <span class="language-name">Hindi</span>
-                                    <div class="language-level">
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                    </div>
-                                    <span class="language-desc">Native</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
                                 </div>
-                                <div class="language-item">
-                                    <span class="language-name">Kannada</span>
-                                    <div class="language-level">
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                    </div>
-                                    <span class="language-desc">Native</span>
+                                <small class="text-muted">Smart Contracts, DeFi, NFTs</small>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">C++</span>
+                                    <span class="text-muted">75%</span>
                                 </div>
-                                <div class="language-item">
-                                    <span class="language-name">Tulu</span>
-                                    <div class="language-level">
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot"></span>
-                                    </div>
-                                    <span class="language-desc">Fluent</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
                                 </div>
-                                <div class="language-item">
-                                    <span class="language-name">Japanese</span>
-                                    <div class="language-level">
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot filled"></span>
-                                        <span class="level-dot"></span>
-                                        <span class="level-dot"></span>
-                                        <span class="level-dot"></span>
-                                    </div>
-                                    <span class="language-desc">Basic</span>
-                                </div>
+                                <small class="text-muted">Algorithms, System Programming</small>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Education & Background -->
-                <div class="education-section">
-                    <h3 class="text-center mb-2">Education & Background</h3>
-                    <div class="education-card">
-                        <div class="education-icon">🎓</div>
-                        <div class="education-details">
-                            <h4>Bachelor of Technology in Information Science</h4>
-                            <p class="education-institution">NMAM Institute of Technology</p>
-                            <div class="education-meta">
-                                <span class="education-year">2021 - 2025</span>
-                                <span class="education-grade">CGPA: 8.02</span>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row h-100">
+                        <div class="col-12 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="mb-3">Languages</h5>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="mb-2"><strong>English</strong> <span class="badge-custom ms-2">Fluent</span></p>
+                                            <p class="mb-2"><strong>Hindi</strong> <span class="badge-custom ms-2">Native</span></p>
+                                            <p class="mb-2"><strong>Kannada</strong> <span class="badge-custom ms-2">Native</span></p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="mb-2"><strong>Tulu</strong> <span class="badge-custom ms-2">Fluent</span></p>
+                                            <p class="mb-2"><strong>Japanese</strong> <span class="badge-custom ms-2">Basic</span></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="education-focus">Focus: Software Development, Data Structures, Machine Learning, Computer Networks</p>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="mb-3">Soft Skills</h5>
+                                    <div class="row text-center">
+                                        <div class="col-6 mb-3">
+                                            <i class="bi bi-pencil-square d-block mb-2" style="font-size: 2rem; color: var(--accent);"></i>
+                                            <h6>Content Strategy</h6>
+                                            <small class="text-muted">Technical writing</small>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <i class="bi bi-people d-block mb-2" style="font-size: 2rem; color: var(--accent);"></i>
+                                            <h6>Leadership</h6>
+                                            <small class="text-muted">Team management</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1663,375 +534,116 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>🚀</span>
-                                <div class="image-overlay">
-                                    <button class="view-demo-btn">View Demo</button>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card card">
+                        <div class="project-image">🚀</div>
+                        <div class="project-info">
+                            <h5 class="mb-3">Blockchain NFT Educational Platform</h5>
+                            <p class="text-muted mb-3">Rewards-based learning system that gamifies blockchain education through interactive NFT achievements.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge-custom">Blockchain</span>
+                                <span class="badge-custom">React</span>
+                                <span class="badge-custom">Web3</span>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">300%</div>
+                                    <small class="text-muted">Engagement</small>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">1K+</div>
+                                    <small class="text-muted">Users</small>
                                 </div>
                             </div>
                         </div>
-                        <h3 class="project-title">Blockchain NFT Educational Platform</h3>
-                        <p class="project-description">Rewards-based learning system that gamifies blockchain education through interactive NFT achievements and community engagement.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Blockchain</span>
-                            <span class="tech-tag">Smart Contracts</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Web3</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">300%</span>
-                                <span class="stat-label">Engagement Increase</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">1K+</span>
-                                <span class="stat-label">Active Users</span>
-                            </div>
-                        </div>
-                        <p class="project-impact">Impact: Increased learning engagement by 300% among participants</p>
                     </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>👋</span>
-                                <div class="image-overlay">
-                                    <button class="view-demo-btn">View Demo</button>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card card">
+                        <div class="project-image">👋</div>
+                        <div class="project-info">
+                            <h5 class="mb-3">Air Gestures</h5>
+                            <p class="text-muted mb-3">Gesture-based classroom interaction tool that enables touchless control of presentations and educational content.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge-custom">Python</span>
+                                <span class="badge-custom">OpenCV</span>
+                                <span class="badge-custom">ML</span>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">5+</div>
+                                    <small class="text-muted">Institutions</small>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">95%</div>
+                                    <small class="text-muted">Accuracy</small>
                                 </div>
                             </div>
                         </div>
-                        <h3 class="project-title">Air Gestures</h3>
-                        <p class="project-description">Gesture-based classroom interaction tool that enables touchless control of presentations and educational content.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Computer Vision</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Institutions</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">95%</span>
-                                <span class="stat-label">Accuracy</span>
-                            </div>
-                        </div>
-                        <p class="project-impact">Impact: Adopted by 5+ educational institutions for interactive learning</p>
                     </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>🧠</span>
-                                <div class="image-overlay">
-                                    <button class="view-demo-btn">Learn More</button>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card card">
+                        <div class="project-image">🧠</div>
+                        <div class="project-info">
+                            <h5 class="mb-3">COPE Leadership</h5>
+                            <p class="text-muted mb-3">Mental health awareness initiative focused on creating safe spaces for students to discuss psychological well-being.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge-custom">Community</span>
+                                <span class="badge-custom">Leadership</span>
+                                <span class="badge-custom">Advocacy</span>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">1K+</div>
+                                    <small class="text-muted">Students</small>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fw-bold" style="color: var(--accent);">50+</div>
+                                    <small class="text-muted">Sessions</small>
                                 </div>
                             </div>
                         </div>
-                        <h3 class="project-title">COPE Leadership</h3>
-                        <p class="project-description">Mental health awareness initiative focused on creating safe spaces for students to discuss and address psychological well-being.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Community Building</span>
-                            <span class="tech-tag">Mental Health</span>
-                            <span class="tech-tag">Leadership</span>
-                            <span class="tech-tag">Advocacy</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">1K+</span>
-                                <span class="stat-label">Students Reached</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Sessions</span>
-                            </div>
-                        </div>
-                        <p class="project-impact">Impact: Reached 1000+ students with mental health resources</p>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>📊</span>
-                                <div class="image-overlay">
-                                    <button class="view-demo-btn">Read Articles</button>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="project-title">EipsInsight Content Strategy</h3>
-                        <p class="project-description">Ethereum research and community engagement platform that simplifies complex blockchain concepts for broader adoption.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Content Strategy</span>
-                            <span class="tech-tag">Ethereum</span>
-                            <span class="tech-tag">Research</span>
-                            <span class="tech-tag">Community</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">50K+</span>
-                                <span class="stat-label">Monthly Readers</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100+</span>
-                                <span class="stat-label">Articles</span>
-                            </div>
-                        </div>
-                        <p class="project-impact">Impact: 50K+ monthly readers across blockchain communities</p>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>🎓</span>
-                                <div class="image-overlay">
-                                    <button class="view-demo-btn">View Impact</button>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Diya Ghar NGO Work</h3>
-                        <p class="project-description">Educational outreach program providing technology literacy and learning resources to underprivileged children.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Education</span>
-                            <span class="tech-tag">Social Impact</span>
-                            <span class="tech-tag">Outreach</span>
-                            <span class="tech-tag">Technology Literacy</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">200+</span>
-                                <span class="stat-label">Children Educated</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Schools</span>
-                            </div>
-                        </div>
-                        <p class="project-impact">Impact: Educated 200+ children in digital literacy skills</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
+    <!-- Experience Timeline -->
+    <section class="section bg-light">
         <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Achievements & Recognition</h2>
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🏆</div>
-                        <h3>Top Blockchain Contributor</h3>
-                        <p>EipsInsight Community Recognition for exceptional content creation and community engagement</p>
-                        <span class="achievement-year">2024</span>
-                    </div>
-                    
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🎯</div>
-                        <h3>Mental Health Advocate</h3>
-                        <p>COPE Initiative - Successfully reached 1000+ students with mental health resources</p>
-                        <span class="achievement-year">2023</span>
-                    </div>
-                    
-                    <div class="achievement-card">
-                        <div class="achievement-icon">💡</div>
-                        <h3>Innovation Leader</h3>
-                        <p>Air Gestures project adopted by 5+ educational institutions for interactive learning</p>
-                        <span class="achievement-year">2023</span>
-                    </div>
-                    
-                    <div class="achievement-card">
-                        <div class="achievement-icon">📚</div>
-                        <h3>Academic Excellence</h3>
-                        <p>BTech Information Science - CGPA 8.02 at NMAM Institute of Technology</p>
-                        <span class="achievement-year">2021-2025</span>
-                    </div>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Professional Journey</h2>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <h5 class="mb-2">Blockchain Strategist</h5>
+                        <h6 class="mb-3" style="color: var(--accent);">Avarch LLC • 2024 - Present</h6>
+                        <p class="text-muted">Leading digital content strategy and community engagement for blockchain initiatives. Developing educational content that reached 50K+ monthly readers.</p>
+                    </div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">What People Say</h2>
-                <div class="testimonials-carousel">
-                    <div class="testimonial-card active">
-                        <div class="testimonial-content">
-                            <p>"Ayush's work on blockchain education has been transformative. His ability to simplify complex concepts while maintaining technical accuracy is remarkable."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AV</div>
-                            <div class="author-info">
-                                <h4>Avarch LLC Team</h4>
-                                <span>Blockchain Strategy</span>
-                            </div>
-                        </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <h5 class="mb-2">COPE Initiative Leader</h5>
+                        <h6 class="mb-3" style="color: var(--accent);">Mental Health Advocacy • 2023 - 2024</h6>
+                        <p class="text-muted">Founded and led mental health awareness initiative, creating safe spaces for students and reaching 1000+ individuals with crucial resources.</p>
                     </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"The COPE initiative led by Ayush created a safe space that genuinely helped students. His empathetic approach to mental health advocacy is inspiring."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ST</div>
-                            <div class="author-info">
-                                <h4>Student Participant</h4>
-                                <span>COPE Initiative</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>"Ayush's Air Gestures technology revolutionized our classroom interactions. The touchless interface enhanced student engagement significantly."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ED</div>
-                            <div class="author-info">
-                                <h4>Educational Partner</h4>
-                                <span>Institution Administrator</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-nav">
-                    <button class="nav-dot active" data-slide="0"></button>
-                    <button class="nav-dot" data-slide="1"></button>
-                    <button class="nav-dot" data-slide="2"></button>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Writing Section -->
-    <section id="writing" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Writing & Insights</h2>
-                <div class="writing-grid">
-                    <div class="writing-card">
-                        <h3 class="writing-title">Blockchain Education: Making Complex Simple</h3>
-                        <p>Exploring innovative approaches to demystify blockchain technology and make it accessible to everyone, regardless of technical background.</p>
-                    </div>
-                    
-                    <div class="writing-card">
-                        <h3 class="writing-title">Mental Health in Tech Communities</h3>
-                        <p>Addressing the unique challenges faced by developers and tech professionals, and building supportive community frameworks.</p>
-                    </div>
-                    
-                    <div class="writing-card">
-                        <h3 class="writing-title">Design Thinking for Social Impact</h3>
-                        <p>How human-centered design principles can be applied to create technology solutions that genuinely serve community needs.</p>
-                    </div>
-                    
-                    <div class="writing-card">
-                        <h3 class="writing-title">The Future of Educational Technology</h3>
-                        <p>Envisioning the next generation of learning platforms that combine cutting-edge technology with pedagogical excellence.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section id="philosophy" class="section philosophy">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Philosophy</h2>
-                <div class="philosophy-grid">
-                    <div class="philosophy-card">
-                        <p class="philosophy-quote">"I believe technology should empower human connection, not replace it"</p>
-                    </div>
-                    
-                    <div class="philosophy-card">
-                        <p class="philosophy-quote">"Every system I build, every campaign I lead, starts with understanding people"</p>
-                    </div>
-                    
-                    <div class="philosophy-card">
-                        <p class="philosophy-quote">"Authenticity over perfection, impact over recognition"</p>
-                    </div>
-                    
-                    <div class="philosophy-card">
-                        <p class="philosophy-quote">"Building bridges between technical innovation and emotional intelligence"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Visualization Section -->
-    <section id="skills-viz" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Technical Proficiency</h2>
-                <div class="skills-visualization">
-                    <!-- Interactive skill bars -->
-                    <div class="skill-bar-container">
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript/TypeScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-skill="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-skill="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Blockchain</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-skill="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C++</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-skill="75"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section id="timeline" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <h2 class="text-center mb-3">Professional Journey</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 - Present</div>
-                        <div class="timeline-content">
-                            <h3>Blockchain Strategist</h3>
-                            <p>Avarch LLC - Leading digital content strategy</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 - 2024</div>
-                        <div class="timeline-content">
-                            <h3>COPE Initiative Leader</h3>
-                            <p>Mental health advocacy reaching 1000+ students</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2022 - 2023</div>
-                        <div class="timeline-content">
-                            <h3>Open Source Contributor</h3>
-                            <p>EipsInsight - 50K+ monthly readers</p>
-                        </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <h5 class="mb-2">Open Source Contributor</h5>
+                        <h6 class="mb-3" style="color: var(--accent);">EipsInsight • 2022 - 2023</h6>
+                        <p class="text-muted">Contributing to Ethereum research and community engagement platform, simplifying complex blockchain concepts for broader adoption.</p>
                     </div>
                 </div>
             </div>
@@ -2041,270 +653,107 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <div class="fade-in">
-                <div class="contact-content">
-                    <h2 class="mb-2">Let's Connect</h2>
-                    <p class="contact-intro">Tell me your story. Let's collaborate on something meaningful.</p>
-                    
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <div class="contact-label">Email</div>
-                            <a href="mailto:ayush.avarch@gmail.com" class="contact-value">ayush.avarch@gmail.com</a>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+                    <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">Ready to collaborate on something amazing?</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100">
+                                <div class="card-body">
+                                    <div class="d-inline-flex align-items-center justify-content-center bg-light rounded-circle mb-3" 
+                                         style="width: 60px; height: 60px;">
+                                        <i class="bi bi-envelope-fill" style="font-size: 1.5rem; color: var(--accent);"></i>
+                                    </div>
+                                    <h5>Email</h5>
+                                    <p class="mb-0">
+                                        <a href="mailto:ayush.avarch@gmail.com" class="text-decoration-none" style="color: var(--accent);">
+                                            ayush.avarch@gmail.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-label">Phone</div>
-                            <a href="tel:+919741827140" class="contact-value">+91 9741827140</a>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-label">LinkedIn</div>
-                            <a href="#" class="contact-value">Connect with me</a>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-label">GitHub</div>
-                            <a href="#" class="contact-value">View my code</a>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card text-center h-100">
+                                <div class="card-body">
+                                    <div class="d-inline-flex align-items-center justify-content-center bg-light rounded-circle mb-3" 
+                                         style="width: 60px; height: 60px;">
+                                        <i class="bi bi-telephone-fill" style="font-size: 1.5rem; color: var(--accent);"></i>
+                                    </div>
+                                    <h5>Phone</h5>
+                                    <p class="mb-0">
+                                        <a href="tel:+919741827140" class="text-decoration-none" style="color: var(--accent);">
+                                            +91 9741827140
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Contact Form -->
-                    <div class="contact-form-container">
-                        <h3 class="mb-2">Send me a message</h3>
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                                <label for="name">Name</label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                                <label for="email">Email</label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <select id="subject" name="subject" required>
-                                    <option value="">Select a topic</option>
-                                    <option value="collaboration">Collaboration Opportunity</option>
-                                    <option value="blockchain">Blockchain Project</option>
-                                    <option value="mental-health">Mental Health Initiative</option>
-                                    <option value="education">Educational Technology</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <label for="subject">Subject</label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Tell me about your project or idea..." rows="5" required></textarea>
-                                <label for="message">Message</label>
-                            </div>
-                            
-                            <button type="submit" class="form-submit-btn">
-                                <span class="btn-text">Send Message</span>
-                                <span class="btn-loading">Sending...</span>
-                            </button>
-                        </form>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-body">
+                            <h5 class="text-center mb-4">Send a Message</h5>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <select class="form-control" required>
+                                            <option value="">Select a topic</option>
+                                            <option value="collaboration">Collaboration Opportunity</option>
+                                            <option value="blockchain">Blockchain Project</option>
+                                            <option value="mental-health">Mental Health Initiative</option>
+                                            <option value="education">Educational Technology</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    
-                    <a href="mailto:ayush.avarch@gmail.com" class="cta-button">Start a Conversation</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 Ayush N Shetty. Crafted with ❤️ and simplicity.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Skill bar animations
-        const skillBars = document.querySelectorAll('.skill-progress');
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillLevel = entry.target.getAttribute('data-skill');
-                    entry.target.style.setProperty('--progress-width', skillLevel + '%');
-                    entry.target.classList.add('animate');
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        skillBars.forEach(bar => {
-            skillObserver.observe(bar);
-        });
-
-        // Enhanced About section skill bars
-        const detailedSkillBars = document.querySelectorAll('.skill-progress-detailed');
-        const detailedSkillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillLevel = entry.target.getAttribute('data-level');
-                    setTimeout(() => {
-                        entry.target.style.width = skillLevel + '%';
-                    }, 200);
-                    detailedSkillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        detailedSkillBars.forEach(bar => {
-            detailedSkillObserver.observe(bar);
-        });
-
-        // Quick stats counter animation
-        const quickStats = document.querySelectorAll('.stat-value');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = entry.target;
-                    const finalValue = target.textContent;
-                    
-                    // Animate counter for numeric values
-                    if (finalValue.includes('.')) {
-                        // CGPA animation
-                        animateValue(target, 0, 8.02, 2000, true);
-                    } else if (finalValue.includes('K+')) {
-                        // K+ values animation
-                        const numValue = parseInt(finalValue);
-                        animateValue(target, 0, numValue, 2000, false, 'K+');
-                    } else {
-                        // Regular numbers
-                        const numValue = parseInt(finalValue);
-                        animateValue(target, 0, numValue, 2000, false, '+');
-                    }
-                    
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        quickStats.forEach(stat => {
-            statsObserver.observe(stat);
-        });
-
-        function animateValue(element, start, end, duration, isDecimal = false, suffix = '') {
-            const startTime = performance.now();
-            
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                const current = start + (end - start) * easeOutQuart(progress);
-                
-                if (isDecimal) {
-                    element.textContent = current.toFixed(2);
-                } else {
-                    element.textContent = Math.floor(current) + suffix;
-                }
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-            
-            requestAnimationFrame(update);
-        }
-
-        function easeOutQuart(t) {
-            return 1 - Math.pow(1 - t, 4);
-        }
-
-        // Value items hover effect
-        const valueItems = document.querySelectorAll('.value-item');
-        valueItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateX(10px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'translateX(0) scale(1)';
-            });
-        });
-
-        // Testimonials carousel
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const testimonialDots = document.querySelectorAll('.nav-dot');
-        
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.classList.toggle('active', i === index);
-            });
-            testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-        
-        testimonialDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                showTestimonial(currentTestimonial);
-            });
-        });
-        
-        // Auto-rotate testimonials
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 5000);
-
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = contactForm.querySelector('.form-submit-btn');
-        
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Add loading state
-            submitBtn.classList.add('loading');
-            
-            // Simulate form submission (replace with actual form handling)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Show success message
-            alert('Thank you! Your message has been sent successfully. I\'ll get back to you soon!');
-            
-            // Reset form
-            contactForm.reset();
-            submitBtn.classList.remove('loading');
-        });
-
-        // Enhanced project card interactions
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Demo button interactions
-        const demoBtns = document.querySelectorAll('.view-demo-btn');
-        demoBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                // Add your demo link logic here
-                alert('Demo will open in a new window (link to be configured)');
-            });
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
         });
 
         // Smooth scrolling for navigation links
@@ -2321,62 +770,58 @@
             });
         });
 
-        // Navigation background on scroll
-        let lastScrollTop = 0;
-        const nav = document.querySelector('.nav');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = 'none';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             }
-            
-            lastScrollTop = scrollTop;
         });
 
-        // Lazy loading simulation for images (if any were added)
-        const lazyImages = document.querySelectorAll('.lazy-image');
-        
-        const imageObserver = new IntersectionObserver((entries) => {
+        // Skills animation on scroll
+        const skillsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('loaded');
-                    imageObserver.unobserve(entry.target);
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                    skillsObserver.unobserve(entry.target);
                 }
             });
-        });
+        }, { threshold: 0.5 });
 
-        lazyImages.forEach(img => {
-            imageObserver.observe(img);
-        });
-
-        // Performance optimization: Debounced scroll handler
-        let ticking = false;
-
-        function updateScrollEffects() {
-            // Add any scroll-based effects here
-            ticking = false;
+        // Observe skills section
+        const skillsSection = document.querySelector('#skills');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
         }
 
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate submission
+            setTimeout(() => {
+                alert('Thank you! Your message has been sent successfully.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
         });
-
-        // Preload critical resources
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.as = 'font';
-        preloadLink.type = 'font/woff2';
-        preloadLink.crossOrigin = 'anonymous';
-        document.head.appendChild(preloadLink);
     </script>
 </body>
 </html>
